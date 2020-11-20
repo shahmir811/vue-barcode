@@ -1,15 +1,51 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+
+    <div>
+      <button 
+        class="btn" 
+        :class="{selected: type=== 'orders'}"
+        @click.prevent="changeType('orders')"
+      >
+        Orders  
+      </button>
+      <button 
+        class="btn" 
+        :class="{selected: type=== 'scan'}"
+        @click.prevent="changeType('scan')"
+      >
+        ScanBarCode
+      </button>
+    </div>
+
+    <Orders v-if="type === 'orders'"/>
+    <ScanBarCode v-if="type === 'scan'"/>
+
+
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Orders from './components/Orders.vue'
+import ScanBarCode from './components/ScanBarCode.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Orders,
+    ScanBarCode
+  },
+  data () {
+    return {
+      // type: 'orders',
+      type: 'scan'
+    }
+  },
+  methods: {
+    changeType(type) {
+      this.type = type
+    }
   }
 }
 </script>
@@ -23,4 +59,21 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.btn {
+  cursor: pointer;
+  height: 50px;
+  width: 250px;
+  background-color: white;
+}
+
+.selected {
+  color: white;
+  background-color:black;
+}
+
+.selected:hover {
+  color: white !important;  
+}
+
 </style>

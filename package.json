@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "jsbarcode": "^3.11.3",
+    "jspdf": "^2.1.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {
