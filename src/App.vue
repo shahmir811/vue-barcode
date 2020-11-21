@@ -38,8 +38,7 @@ export default {
   },
   data () {
     return {
-      // type: 'orders',
-      type: 'scan'
+      type: 'orders',
     }
   },
   methods: {
